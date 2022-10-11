@@ -1,0 +1,66 @@
+name: fashion
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^0.22.0
+  provider: ^6.0.0
+  carousel_slider: ^4.0.0
+  flutter_rating_bar: ^4.0.0
+  page_transition: ^2.0.2
+  badges: ^2.0.1
+  fluttertoast: ^8.0.7
+  dio: ^4.0.6
+  flutter_bloc: ^8.1.1
+  bloc: ^8.1.0
+  shared_preferences:
+  conditional_builder_null_safety: ^0.0.6
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^1.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/image/
+    - assets/icons/
+
+
+  fonts:
+    - family: Metro
+      fonts:
+        - asset: assets/font/metropolis.bold.ttf
+          weight: 400
+        - asset: assets/font/metropolis.medium.ttf
+          weight: 500
+        - asset: assets/font/metropolis.regular.ttf
+          weight: 600
+        - asset: assets/font/metropolis.semi-bold.ttf
+          weight: 700
+

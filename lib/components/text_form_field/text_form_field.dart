@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../../../const/fonts.dart';
+import '../../view/const/fonts.dart';
 
 class TextFieldAddress extends StatelessWidget {
   final TextEditingController textEditingController;
   final String labelText;
 
-  const TextFieldAddress(
-      {Key? key, required this.textEditingController, required this.labelText})
-      : super(key: key);
+  const TextFieldAddress({
+    Key? key,
+    required this.textEditingController,
+    required this.labelText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
@@ -42,3 +44,5 @@ class TextFieldAddress extends StatelessWidget {
     );
   }
 }
+
+

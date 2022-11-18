@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../components/text_form_field/text_form_field.dart';
 import '../../const/colors.dart';
 import '../../const/fonts.dart';
-import '../components/text_form_field/text_form_field.dart';
 
 class RegisterScreen extends StatelessWidget {
   final emailController = TextEditingController();

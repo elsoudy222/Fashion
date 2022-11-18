@@ -1,6 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fashion/data/model/categories_model.dart';
 import 'package:fashion/view/const/colors.dart';
 import 'package:fashion/view/const/fonts.dart';
+import 'package:fashion/view_model/layout/layout_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'widgets/categories_widgets.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -12,6 +18,11 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
+    return BlocConsumer<LayoutCubit, LayoutState>(
+  listener: (context, state) {
+  },
+  builder: (context, state) {
+    var cubit = LayoutCubit.get(context);
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
@@ -28,19 +39,20 @@ class _CategoryScreenState extends State<CategoryScreen> {
         ],
       ),
       body: SingleChildScrollView(
-
+        physics: BouncingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.all(15.0),
           child: Column(
             children: [
-              buildSalesSide(),
+             buildSalesSide(),
               SizedBox(height: 16.0,),
               SizedBox(
-                height: MediaQuery.of(context).size.height,
+                height: MediaQuery.of(context).size.height*0.9,
                 child: ListView.separated(
                   scrollDirection: Axis.vertical,
-                  itemCount: 5,
-                  itemBuilder: (context, index) => buildCategoryItem(),
+                  itemCount:cubit.categoriesModel!.data!.data!.length,
+                  itemBuilder: (context, index) =>
+                      buildCategoryItem(cubit.categoriesModel!.data!.data![index]),
                   separatorBuilder: (context, index) => SizedBox(height: 16.0,),
                 ),
               ),
@@ -51,70 +63,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
       ),
 
     );
+  },
+);
   }
 }
 
-Widget buildCategoryItem() {
-  return Container(
-    height: 100,
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(15.0),
-    ),
-    child: Row(
-      children: [
-        Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(left: 23.0),
-              child: Text(
-                "New",
-                style: AppFont.bold.copyWith(
-                    fontSize: 20.0
-                ),
-              ),
-            )
-        ),
-        Expanded(
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(15.0),
-              bottomRight: Radius.circular(15.0),
-            ),
-            child: Image.asset(
-              "assets/image/header.png",
-              fit: BoxFit.cover,
-              height: 100,
 
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
 
-Widget buildSalesSide() {
-  return Container(
-    height: 100,
-    decoration: BoxDecoration(
-      color: AppColors.primaryColorRed,
-      borderRadius: BorderRadius.circular(15.0),
-    ),
-    child: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "SUMMER SALES",
-            style: AppFont.bold.copyWith(color: Colors.white, fontSize: 25),
-          ),
-          Text(
-            "Up to 50% off",
-            style: AppFont.regular.copyWith(color: Colors.white, fontSize: 15),
-          ),
 
-        ],
-      ),
-    ),
-  );
-}

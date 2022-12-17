@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                      homeBody(cubit.homeModel,context),
+                      homeBody(cubit.homeModel,context,),
                     const SizedBox(
                       height: 2,
                     ),

@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => LayoutCubit()..getHomeData()..getCategories()..getFavorites()..getCarts(),
+          create: (context) => LayoutCubit()..getHomeData()..getCategories()..getFavorites()..getCarts()..getAddress(),
         ),
       ],
       child: BlocConsumer<LayoutCubit, LayoutState>(
@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
             title: 'Fashion App',
             theme: ThemeData(
               primaryColor: AppColors.primaryColorRed,
-              appBarTheme: AppBarTheme(
+              appBarTheme: const AppBarTheme(
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarColor: Colors.black,
                   statusBarIconBrightness: Brightness.dark,
@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
                 iconTheme: IconThemeData(
                     color: Colors.black
                 ),
-               // titleTextStyle: GoogleFonts.atkinsonHyperlegible(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.black),
+
               ),
             ),
             home: startWidget,

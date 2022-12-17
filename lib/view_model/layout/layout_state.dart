@@ -14,6 +14,14 @@ class ErrorHomeDataStates extends LayoutState{
   ErrorHomeDataStates(this.error);
 }
 
+class LoadingProductDetailsStates extends LayoutState{}
+class SuccessProductDetailsStates extends LayoutState{}
+class ErrorProductDetailsStates extends LayoutState{
+  final String error;
+  ErrorProductDetailsStates(this.error);
+}
+
+
 class LoadingCategoryDataStates extends LayoutState{}
 class SuccessCategoryDataStates extends LayoutState{}
 class ErrorCategoryDataStates extends LayoutState{
@@ -66,3 +74,44 @@ class ErrorUpdateCartsDataStates extends LayoutState{
   final String error;
   ErrorUpdateCartsDataStates(this.error);
 }
+
+
+class LoadingGetAddressStates extends LayoutState{}
+class SuccessGetAddressStates extends LayoutState{}
+class ErrorGetAddressStates extends LayoutState{
+  final String error;
+  ErrorGetAddressStates(this.error);
+}
+
+
+class LoadingUpdateAddressStates extends LayoutState{}
+class SuccessUpdateAddressStates extends LayoutState{
+  final UpdateAddressModel updateAddressModel;
+
+  SuccessUpdateAddressStates(this.updateAddressModel);
+}
+class ErrorUpdateAddressStates extends LayoutState{
+  final String error;
+  ErrorUpdateAddressStates(this.error);
+}
+
+
+class LoadingAddAddressStates extends LayoutState{}
+class SuccessAddAddressStates extends LayoutState{
+final  AddAddressModel addAddressModel;
+  SuccessAddAddressStates(this.addAddressModel);
+}
+class ErrorAddAddressStates extends LayoutState{
+  final String error;
+  ErrorAddAddressStates(this.error);
+}
+
+class LoadingDeleteAddressStates extends LayoutState{}
+class SuccessDeleteAddressStates extends LayoutState{}
+class ErrorDeleteAddressStates extends LayoutState{
+  final String error;
+  ErrorDeleteAddressStates(this.error);
+}
+
+
+

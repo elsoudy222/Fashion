@@ -1,6 +1,8 @@
 import 'package:fashion/view/const/fonts.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/constance.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -13,9 +15,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          "p r o f i l e s c r e e n ".toUpperCase(),
-          style: AppFont.bold,
+        child: TextButton(
+           onPressed: () {
+             signOut(context);
+           },
+           child:Text(
+             "p r o f i l e s c r e e n ".toUpperCase(),
+             style: AppFont.bold,
+           ),
+
         ),
       ),
     );

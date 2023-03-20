@@ -80,10 +80,6 @@ class MyApp extends StatelessWidget {
               ),
             ),
             home: startWidget,
-            // routes: {
-            //   '/': (ctx) => const LoginScreen(),
-            //
-            // },
           );
         },
       ),

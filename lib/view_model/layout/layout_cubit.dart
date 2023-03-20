@@ -32,11 +32,11 @@ class LayoutCubit extends Cubit<LayoutState> {
 
   int currentIndex = 0;
   List<Widget> screens = [
-    HomeScreen(),
-    CategoryScreen(),
-    CartScreen(),
-    FavoritesScreen(),
-    ProfileScreen(),
+    const HomeScreen(),
+    const CategoryScreen(),
+    const CartScreen(),
+    const FavoritesScreen(),
+    const ProfileScreen(),
   ];
 
   void changeBottomNavBar(int index) {
@@ -47,6 +47,7 @@ class LayoutCubit extends Cubit<LayoutState> {
  
   Map<int, bool> favorites = {};
   Map<int, bool> cart = {};
+
   HomeModel? homeModel;
   void getHomeData() {
     emit(LoadingHomeDataStates());
@@ -55,6 +56,7 @@ class LayoutCubit extends Cubit<LayoutState> {
       token: token,
     ).then((value) {
       homeModel = HomeModel.fromJson(value.data);
+
       homeModel!.data!.products!.forEach((element) {
         favorites.addAll({
           element.id!: element.inFavorites!,
@@ -90,7 +92,6 @@ class LayoutCubit extends Cubit<LayoutState> {
 
 
   CategoriesModel? categoriesModel;
-
   void getCategories() {
     emit(LoadingCategoryDataStates());
     DioHelper.getData(
@@ -106,8 +107,8 @@ class LayoutCubit extends Cubit<LayoutState> {
     });
   }
 
-  ChangeFavoritesModel? changeFavoritesModel;
 
+  ChangeFavoritesModel? changeFavoritesModel;
   void changeFavorites(int productId) {
     favorites[productId] = !favorites[productId]!;
     emit(ChangeFavoritesStates());
@@ -134,7 +135,6 @@ class LayoutCubit extends Cubit<LayoutState> {
   }
 
   FavoritesModel? favoritesModel;
-
   void getFavorites() {
     emit(LoadingGetFavoritesStates());
     DioHelper.getData(
@@ -176,7 +176,6 @@ class LayoutCubit extends Cubit<LayoutState> {
   }
 
   CartsModel? cartsModel;
-
   void getCarts() {
     emit(LoadingGetCartsStates());
     DioHelper.getData(
@@ -193,7 +192,6 @@ class LayoutCubit extends Cubit<LayoutState> {
   }
 
   int quantity = 1;
-
   void plusQuantity(CartsModel model, index) {
     quantity = model.data!.cartItems![index].quantity!;
     quantity++;

@@ -13,16 +13,18 @@ Widget defaultTextButton({
       text,
     )
 );
-void navigateAndFinish(context, widget) =>   Navigator.pushAndRemoveUntil(
+
+void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
     context,
     MaterialPageRoute(
       builder: (context) => widget,
     ),
-        (route) => false);
+        (route) => false,
+);
 
 
 Widget defaultFormField({
-  required TextEditingController controller,
+  required TextEditingController controller,                                                                                                          
   required TextInputType type,
   Function? onChange,
   Function? onTap,
@@ -92,7 +94,6 @@ enum ToastState{SUCCESS, ERROR, WARNING}
 
 Color showToastColor(ToastState state){
   Color color;
-
   switch(state){
     case ToastState.SUCCESS:
       color = Colors.green;
